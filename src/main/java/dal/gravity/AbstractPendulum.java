@@ -12,7 +12,7 @@ public abstract class AbstractPendulum {
     private double stringLength, pointMass;
     protected double theta0; 
     protected double g; 
-
+    public static final double GRAVITY = 9.80665;
     /**
      * Creates a new Pendulum instance using
      * inLength: the string length (>0)
@@ -20,6 +20,11 @@ public abstract class AbstractPendulum {
      * inTheta0: angular displacement at t=0 (0<=theta0)
      * inG: gravitational field value to use
      */
+    
+    public AbstractPendulum (double inLength, double inMass, double inTheta0) {
+    	this(inLength, inMass, inTheta0, GRAVITY);
+        }
+    
     public AbstractPendulum (double inLength, double inMass, double inTheta0, double inG) {
 	if (validStringLength (inLength)) stringLength = inLength;
 	else throw new IllegalArgumentException ("invalid string length: " + inLength);
